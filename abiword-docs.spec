@@ -9,6 +9,7 @@ Source0:    http://www.abisource.com/downloads/abiword/%{version}/source/%{name}
 BuildRoot:  %_tmppath/%name-%version-buildroot
 BuildArch:  noarch
 BuildRequires:	abiword-devel >= %{version}
+BuildRequires:  libglade2-devel
 
 %description
 Documentation and helpfiles for Abiword.
