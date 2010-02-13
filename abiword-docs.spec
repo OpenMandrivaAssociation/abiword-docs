@@ -1,6 +1,6 @@
 Name:       abiword-docs
 Summary:    Documentation and helpfiles for Abiword
-Version:    2.8.1
+Version:    2.8.2
 Release:    %mkrel 1
 Group:      Office
 URL:        http://www.abisource.com/
@@ -8,7 +8,7 @@ License:    GPLv2+
 Source0:    http://www.abisource.com/downloads/abiword/%{version}/source/%{name}-%{version}.tar.gz
 BuildRoot:  %_tmppath/%name-%version-buildroot
 BuildArch:  noarch
-BuildRequires:	abiword-devel >= %{version}
+BuildRequires:	abiword-devel >= 2.8
 BuildRequires:  libglade2-devel
 
 %description
