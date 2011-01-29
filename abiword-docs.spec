@@ -1,7 +1,7 @@
 Name:       abiword-docs
 Summary:    Documentation and helpfiles for Abiword
-Version:    2.8.4
-Release:    %mkrel 2
+Version:    2.8.6
+Release:    %mkrel 1
 Group:      Office
 URL:        http://www.abisource.com/
 License:    GPLv2+
