@@ -1,2 +1,4 @@
+---
 sources:
-  "abiword-docs-2.8.6.tar.gz:"	67186c18766ac459ea739e156a977545deac256c
+  abiword-docs-2.9.4.tar.gz: 6e57d292dad11cd13aeefce9acf64963e946bc8b
+  abiword-docs-2.9.4.htmls.tar.gz: 41f1e6ead565a8e7a0f3c5cfcfe3c056d65c220d
