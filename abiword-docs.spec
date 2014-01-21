@@ -1,112 +1,78 @@
-Name:       abiword-docs
-Summary:    Documentation and helpfiles for Abiword
-Version:    2.9.4
-Release:    1
-Group:      Office
-URL:        http://www.abisource.com/
-License:    GPLv2+
-Source0:    http://www.abisource.com/downloads/abiword/%{version}/source/%{name}-%{version}.tar.gz
-##########################################################################
-# dirty hack: abiword cant generate part of its own docs under x86_64!!! #
-source1:    abiword-docs-2.9.4.htmls.tar.gz
-##########################################################################
-BuildArch:  noarch
-BuildRequires:	abiword-devel >= 2.9
-BuildRequires:  pkgconfig(libglade-2.0)
+Summary:	Documentation and help files for Abiword
+Name:		abiword-docs
+Version:	3.0.0
+Release:	1
+License:	GPLv2+
+Group:		Office
+Url:		http://www.abisource.com/
+Source0:	http://www.abisource.com/downloads/abiword/%{version}/source/%{name}-%{version}.tar.gz
+BuildRequires:	abiword-devel >= 3.0
+BuildRequires:	pkgconfig(libglade-2.0)
+# Exclude some pages pending http://bugzilla.abisource.com/show_bug.cgi?id=13459
+Patch0:		abiword-docs-2.9.4-mga-temp_build_fix-en-US-Makefile.in.patch
+Patch1:		abiword-docs-2.9.4-mga-temp_build_fix-pl-PL-Makefile.in.patch
+Patch2:		abiword-docs-2.9.4-mga-temp_build_fix-fr-FR-Makefile.in.patch
 
 %description
-Documentation and helpfiles for Abiword.
+Documentation and help files for Abiword.
 
-#--------------------------------------------
+#----------------------------------------------------------------------------
+
 %package en
-Summary: English documentation and helpfiles for Abiword
-Group: Office
-Requires: locales-en
-Provides: abiword-doc
+Summary:	English documentation and help files for Abiword
+BuildArch:	noarch
+Requires:	locales-en
+Provides:	abiword-doc = %{EVRD}
 
 %description en
-English documentation and helpfiles for Abiword.
+English documentation and help files for Abiword.
 
 %files en
 %{_datadir}/abiword*/help/en-US
+%dir %{_datadir}/abiword*/help/
 
-#--------------------------------------------
+#----------------------------------------------------------------------------
+
 %package fr
-Summary: French documentation and helpfiles for Abiword
-Group: Office
-Requires: locales-fr
-Provides: abiword-doc
+Summary:	French documentation and help files for Abiword
+BuildArch:	noarch
+Requires:	locales-fr
+Provides:	abiword-doc = %{EVRD}
 
 %description fr
-French documentation and helpfiles for Abiword.
+French documentation and help files for Abiword.
 
 %files fr
 %{_datadir}/abiword*/help/fr-FR
+%dir %{_datadir}/abiword*/help/
 
-#--------------------------------------------
+#----------------------------------------------------------------------------
+
 %package pl
-Summary: Polish documentation and helpfiles for Abiword
-Group: Office
-Requires: locales-pl
-Provides: abiword-doc
+Summary:	Polish documentation and help files for Abiword
+BuildArch:	noarch
+Requires:	locales-pl
+Provides:	abiword-doc = %{EVRD}
 
 %description pl
-Polish documentation and helpfiles for Abiword.
+Polish documentation and help files for Abiword.
 
 %files pl
 %{_datadir}/abiword*/help/pl-PL
+%dir %{_datadir}/abiword*/help/
 
-#--------------------------------------------
+#----------------------------------------------------------------------------
 
 %prep
 %setup -q
-##########################################################################
-# dirty hack: abiword cant generate part of its own docs under x86_64!!! #
-if [ "%{_build_arch}" == "x86_64" ]; then
-tar -xf %{SOURCE1} -C ABW
-fi
-##########################################################################
- 
+%patch0 -p0 -b .abiword-docs-2.9.4-mga-temp_build_fix-en-US-Makefile.in.patch
+%patch1 -p0 -b .abiword-docs-2.9.4-mga-temp_build_fix-pl-PL-Makefile.in.patch
+%patch2 -p0 -b .abiword-docs-2.9.4-mga-temp_build_fix-fr-FR-Makefile.in.patch
+
 %build
 %configure2_5x
 %make
 
 %install
 %makeinstall_std
-
-
-
-%changelog
-* Sat Jan 29 2011 Funda Wang <fwang@mandriva.org> 2.8.6-1mdv2011.0
-+ Revision: 633940
-- update to new version 2.8.6
-
-* Sun Dec 05 2010 Oden Eriksson <oeriksson@mandriva.com> 2.8.4-2mdv2011.0
-+ Revision: 609904
-- rebuild
-
-* Sun Apr 18 2010 Funda Wang <fwang@mandriva.org> 2.8.4-1mdv2010.1
-+ Revision: 536083
-- new version 2.8.4
-
-* Sun Apr 04 2010 Funda Wang <fwang@mandriva.org> 2.8.3-1mdv2010.1
-+ Revision: 531236
-- new version 2.8.3
-
-* Sat Feb 13 2010 Funda Wang <fwang@mandriva.org> 2.8.2-1mdv2010.1
-+ Revision: 505499
-- New version 2.8.2
-
-* Fri Oct 30 2009 Frederic Crozat <fcrozat@mandriva.com> 2.8.1-1mdv2010.0
-+ Revision: 460236
-- Release 2.8.1
-
-* Wed Oct 28 2009 Frederic Crozat <fcrozat@mandriva.com> 2.8.0-1mdv2010.0
-+ Revision: 459642
-- Fix builrequires
-- Release 2.8.0
-
-* Sat Aug 22 2009 Funda Wang <fwang@mandriva.org> 2.7.8-1mdv2010.0
-+ Revision: 419502
-- import abiword-docs
 
