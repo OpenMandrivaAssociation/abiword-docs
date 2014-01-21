@@ -12,6 +12,7 @@ BuildRequires:	pkgconfig(libglade-2.0)
 Patch0:		abiword-docs-2.9.4-mga-temp_build_fix-en-US-Makefile.in.patch
 Patch1:		abiword-docs-2.9.4-mga-temp_build_fix-pl-PL-Makefile.in.patch
 Patch2:		abiword-docs-2.9.4-mga-temp_build_fix-fr-FR-Makefile.in.patch
+BuildArch:	noarch
 
 %description
 Documentation and help files for Abiword.
@@ -20,9 +21,9 @@ Documentation and help files for Abiword.
 
 %package en
 Summary:	English documentation and help files for Abiword
-BuildArch:	noarch
 Requires:	locales-en
 Provides:	abiword-doc = %{EVRD}
+BuildArch:	noarch
 
 %description en
 English documentation and help files for Abiword.
@@ -35,9 +36,9 @@ English documentation and help files for Abiword.
 
 %package fr
 Summary:	French documentation and help files for Abiword
-BuildArch:	noarch
 Requires:	locales-fr
 Provides:	abiword-doc = %{EVRD}
+BuildArch:	noarch
 
 %description fr
 French documentation and help files for Abiword.
@@ -50,9 +51,9 @@ French documentation and help files for Abiword.
 
 %package pl
 Summary:	Polish documentation and help files for Abiword
-BuildArch:	noarch
 Requires:	locales-pl
 Provides:	abiword-doc = %{EVRD}
+BuildArch:	noarch
 
 %description pl
 Polish documentation and help files for Abiword.
