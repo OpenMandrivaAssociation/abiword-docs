@@ -4,7 +4,7 @@ Version:	3.0.0
 Release:	2
 License:	GPLv2+
 Group:		Office
-Url:		http://www.abisource.com/
+Url:		https://www.abisource.com/
 Source0:	http://www.abisource.com/downloads/abiword/%{version}/source/%{name}-%{version}.tar.gz
 BuildRequires:	abiword-devel >= 3.0
 BuildRequires:	pkgconfig(libglade-2.0)
