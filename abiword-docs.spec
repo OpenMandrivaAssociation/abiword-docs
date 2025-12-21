@@ -6,6 +6,11 @@ License:	GPLv2+
 Group:		Office
 Url:		https://www.abisource.com/
 Source0:	http://www.abisource.com/downloads/abiword/%{version}/source/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	abiword-devel >= 3.0
 BuildRequires:	pkgconfig(libglade-2.0)
 # Exclude some pages pending http://bugzilla.abisource.com/show_bug.cgi?id=13459
